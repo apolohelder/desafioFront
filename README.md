@@ -1,47 +1,73 @@
-# Desafio Front-End da Desbravador Software
+# React + TypeScript + Vite
 
-**Proposta:**  
-Implementar uma aplicação client-side, que consulte a API do GitHub e mostre os repositórios mais populares de um determinado usuário. Esta aplicação deve funcionar nos navegadores mais recentes do mercado.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**API**: [https://developer.github.com/v3/](https://developer.github.com/v3/)
+Currently, two official plugins are available:
 
-### **Requisitos técnicos** ###
-* **Preferencialmente não utilizar frameworks** Vue, Angular, etc.
-* * Utilizar React não será eliminatório
-* É obrigatório o uso de rotas.
-* Pode usar jquery ou Fetch API, porém **axios** é mais legal.
-* O layout deve ser responsivo, seguindo os padrões Bootstrap.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-### **Requisitos de negócio** ###
+## React Compiler
 
-* Eu, como usuário, desejo **buscar** por um usuário do GitHub;
-* Eu, como usuário, desejo **ver os detalhes do usuário** buscado (número de seguidores, número de seguidos, imagem do avatar, e-mail e bio);
-* Eu, como usuário, desejo **ver a listagem dos repositórios** desse usuário que foi buscado, ordenados pelo número decrescente de estrelas;
-* Eu, como usuário, desejo poder **alterar a ordem da listagem** de repositórios;
-* Eu, como usuário, desejo ver uma **página com os detalhes** de um repositório (nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub), que pode ser clicado na listagem dos repositórios;
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### **Critérios de Avaliação** ###
+## Expanding the ESLint configuration
 
-* **Organização do projeto**: Avalia a estrutura do projeto, documentação e uso de controle de versão;
-* **Inovação tecnológica**: Avalia o uso de tecnologias mais recentes, como novas características ES6 da linguagem;
-* **Coerência**: Avalia se os requisitos foram atendidos;
-* **Boas práticas**: Avalia se o projeto segue boas práticas de desenvolvimento, incluindo segurança e otimização;
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### **Observação** ###
-A performance e a adequação dos recursos serão considerados durante o processo de avaliação. Alem disso, a avaliação ocorrerá em todos os componentes do projeto (JavaScript, HTML e CSS).
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-As APIs a serem consumidas são:
-* Detalhes de um usuário: [https://api.github.com/users/{username}](https://api.github.com/users/{username})
-* Repositórios de um usuário: [https://api.github.com/users/{username}/repos](https://api.github.com/users/{username}/repos)
-* Detalhes de um repositório: [https://api.github.com/repos/{full_name}](https://api.github.com/repos/{full_name})
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### **Processo de submissão** ###
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-O desafio deve ser entregue pelo [GitHub](http://github.com/), com README de instalação, start do projeto e visualização da demo.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-A aplicação deve estar hospedada (bônus) ([Heroku](https://www.heroku.com/), [Firebase](https://www.firebase.com/), [Plunker](https://plnkr.co/), [Surge](http://surge.sh/), etc) As URLs deve ser enviada por email.
-
-Qualquer dúvida em relação ao desafio, responderemos por e-mail.
-
-Bom trabalho!
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
