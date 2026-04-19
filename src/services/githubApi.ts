@@ -6,17 +6,13 @@ const githubApi = axios.create({
     baseURL: import.meta.env.VITE_GITHUB_API_URL,
 });
 
-export async function getUser(username: string): Promise<GitHubUser> {
-    const response = await githubApi.get<GitHubUser>(`/users/${username}`);
-    return response.data;
+async function fetchData<T>(url: string): Promise<T> {
+    const { data } = await githubApi.get<T>(url);
+    return data;
 }
 
-export async function getUserRepos(username: string): Promise<GitHubRepo[]> {
-    const response = await githubApi.get<GitHubRepo[]>(`/users/${username}/repos`);
-    return response.data;
-}
+export const getUser = (username: string) => fetchData<GitHubUser>(`/users/${username}`);
 
-export async function getRepoDetails(fullName: string): Promise<GitHubRepo> {
-    const response = await githubApi.get<GitHubRepo>(`/repos/${fullName}`);
-    return response.data;
-}
+export const getUserRepos = (username: string) => fetchData<GitHubRepo[]>(`/users/${username}/repos`);
+
+export const getRepoDetails = (fullName: string) => fetchData<GitHubRepo>(`/repos/${fullName}`);
