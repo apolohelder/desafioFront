@@ -31,7 +31,11 @@ export function SearchForm() {
                     <label htmlFor="searchInput">Buscar usuário do GitHub</label>
                 </div>
 
-                <button type="submit" className="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center">
+                <button
+                    type="submit"
+                    aria-label="Buscar usuário"
+                    className="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center"
+                >
                     <Icon name="search" size={20} className="me-2" title="Buscar" />
                     <span>Buscar</span>
                 </button>

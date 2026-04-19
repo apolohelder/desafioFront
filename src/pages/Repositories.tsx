@@ -5,7 +5,7 @@ import { Loading } from '../components/Loading';
 import { repoDetailsFetch } from '../hooks/repoDetailsFetch';
 import { BoxStatsRepo } from '../components/BoxStatsRepo';
 
-export function Repositories() {
+export default function Repositories() {
 
     const { owner, repo } = useParams<{ owner: string; repo: string }>();
 

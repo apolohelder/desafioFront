@@ -9,7 +9,7 @@ import { userFetch } from '../hooks/userFetch';
 import { BoxStats } from '../components/BoxStats';
 import type { RepoSortOption } from '../types/RepoSortOption';
 
-export function User() {
+export default function User() {
 
     const { username } = useParams<{ username: string }>();
     const { user, loading, error } = userFetch(username);

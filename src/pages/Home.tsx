@@ -1,5 +1,5 @@
 import { SearchForm } from '../components/SearchForm';
-export function Home() {
+export default function Home() {
     return (
         <div className="py-5">
             <div className="row">

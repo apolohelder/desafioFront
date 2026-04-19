@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export function NotFound() {
+export default function NotFound() {
     return (
         <div className="container">
             <div className="text-center">
