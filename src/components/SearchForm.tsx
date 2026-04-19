@@ -15,14 +15,14 @@ export function SearchForm() {
     }
     return (
 
-        <div className="mt-md-5 pt-5">
+        <div className="mb-md-5 pt-5">
 
             <form onSubmit={handleSubmit} className="position-relative">
 
                 <div className="form-floating">
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control rounded-4"
                         id="searchInput"
                         placeholder="Digite o nome de usuário"
                         value={username}

@@ -4,6 +4,7 @@ import { ErrorMessage } from '../components/ErrorMessage';
 import { Loading } from '../components/Loading';
 import { repoDetailsFetch } from '../hooks/repoDetailsFetch';
 import { BoxStatsRepo } from '../components/BoxStatsRepo';
+import { BackButton } from '../components/BackButton';
 
 export default function Repositories() {
 
@@ -22,8 +23,11 @@ export default function Repositories() {
 
     return (
         <div className="container">
-            <div className="card shadow-sm border-0">
-                <div className="card-body p-4 p-md-5">
+
+            <BackButton />
+
+            <div className="card shadow-sm p-2">
+                <div className="card-body">
                     <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
                         <div>
                             <p className="text-muted mb-1">{repoData.full_name}</p>

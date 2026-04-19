@@ -8,6 +8,7 @@ import { repoFetch } from '../hooks/repoFetch';
 import { userFetch } from '../hooks/userFetch';
 import { BoxStats } from '../components/BoxStats';
 import type { RepoSortOption } from '../types/RepoSortOption';
+import { BackButton } from '../components/BackButton';
 
 export default function User() {
 
@@ -39,6 +40,9 @@ export default function User() {
 
     return (
         <div className="container">
+
+            <BackButton />
+
             <div className="card shadow-sm p-4">
                 <div className="row align-items-center">
 
