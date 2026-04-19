@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUser } from '../services/githubApi';
-import type { GitHubUser } from '../types/github';
+import type { GitHubUser } from '../types/GitHubUser';
 
 export function userFetch(username: string | undefined) {
 
