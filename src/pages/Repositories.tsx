@@ -49,7 +49,7 @@ export function Repositories() {
                         <BoxStatsRepo title="Estrelas" numberStat={repoData.stargazers_count} />
                         <BoxStatsRepo title="Linguagem" numberStat={repoData.language || 'Não informada'} />
                         <BoxStatsRepo title="Forks" numberStat={repoData.forks_count} />
-                        <BoxStatsRepo title="Forks" numberStat={repoData.open_issues_count} />
+                        <BoxStatsRepo title="Issues abertas" numberStat={repoData.open_issues_count} />
                     </div>
 
                     <div className="row g-4 mb-4">

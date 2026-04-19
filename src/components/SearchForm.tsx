@@ -24,11 +24,11 @@ export function SearchForm() {
                         type="text"
                         className="form-control"
                         id="searchInput"
-                        placeholder="username/repository-name"
+                        placeholder="Digite o nome de usuário"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
-                    <label htmlFor="searchInput"> Buscar por usuário ou repositório</label>
+                    <label htmlFor="searchInput">Buscar usuário do GitHub</label>
                 </div>
 
                 <button type="submit" className="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center">

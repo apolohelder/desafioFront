@@ -17,18 +17,6 @@ export function Header() {
                                     Home
                                 </Link>
                             </li>
-
-                            <li className="nav-item">
-                                <Link className="nav-link text-secondary" to="">
-                                    Usuário
-                                </Link>
-                            </li>
-
-                            <li className="nav-item">
-                                <Link className="nav-link text-secondary" to="">
-                                    Repositório
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                 </div>

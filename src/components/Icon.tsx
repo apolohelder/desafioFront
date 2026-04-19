@@ -1,21 +1,12 @@
 import { ICON_PATHS } from '../constants/icons';
-import type { IconName } from '../constants/icons';
-
-interface IconProps {
-    name: IconName;
-    size?: number | string;
-    className?: string;
-    color?: string;
-    title?: string;
-}
+import type { IconProps } from '../types/IconProps';
 
 export function Icon({
     name,
     size = '20px',
-    className = '',
-    color = 'currentColor',
-    title,
-}: IconProps) {
+    className = '', color = 'currentColor',
+    title, }: IconProps) {
+
     const path = ICON_PATHS[name];
 
     if (!path) {

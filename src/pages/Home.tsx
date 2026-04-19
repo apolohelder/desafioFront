@@ -7,7 +7,7 @@ export function Home() {
                     <h1 className="fs-1 fw-bold mb-5">Buscar usuário do GitHub</h1>
 
                     <p className="lead">
-                        Descubra desenvolvedores excepcionais e repositórios de classe mundial por meio de uma interface de alta fidelidade projetada para supervisão de engenharia de elite.
+                        Busque um usuário do GitHub para visualizar seu perfil e os repositórios públicos mais populares.
                     </p>
 
                     <SearchForm />
