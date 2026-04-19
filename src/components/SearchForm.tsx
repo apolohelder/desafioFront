@@ -31,7 +31,7 @@ export function SearchForm() {
 
         <div className="mb-md-5 pt-5">
 
-            <form onSubmit={handleSubmit} className="position-relative">
+            <form onSubmit={handleSubmit} className="position-relative" autoComplete="off">
 
                 <div className="form-floating">
                     <input
@@ -42,6 +42,7 @@ export function SearchForm() {
                         placeholder="Digite o nome de usuário"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        autoComplete="off"
                     />
                     <label htmlFor="searchInput">Buscar usuário do GitHub</label>
                 </div>
