@@ -2,14 +2,12 @@
 
 Aplicação front-end desenvolvida para consumir a API do GitHub, permitindo buscar usuários e visualizar seus repositórios mais populares com ordenação e navegação detalhada.
 
----
 
 ## Demonstração
 
 - Vercel: https://desafio-front-alpha.vercel.app
 - cPanel: https://helder.dev.br 
 
----
 
 ## Tecnologias utilizadas
 
@@ -20,7 +18,6 @@ Aplicação front-end desenvolvida para consumir a API do GitHub, permitindo bus
 - React Router
 - Bootstrap
 
----
 
 ## Funcionalidades
 
