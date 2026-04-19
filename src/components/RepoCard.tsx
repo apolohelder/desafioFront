@@ -17,7 +17,7 @@ export function RepoCard({ repo }: RepoCardProps) {
                 </p>
 
                 <p className="mb-2">
-                    <strong><Icon name="star" size={20} /> Estrelas Estrelas:</strong> {repo.stargazers_count}
+                    <strong><Icon name="star" size={20} /> Estrelas:</strong> {repo.stargazers_count}
                 </p>
 
                 <p className="mb-3">
