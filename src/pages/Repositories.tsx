@@ -100,7 +100,7 @@ export default function Repositories() {
                                             target="_blank"
                                             rel="noreferrer"
                                         >
-                                            Ver perfil do owner
+                                            Ver perfil do proprietário
                                         </a>
                                     </div>
                                 </div>

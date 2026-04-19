@@ -60,7 +60,7 @@ export default function User() {
                             @{user.login}
                         </p>
 
-                        {user.bio && <p className="mb-3">{user.bio}</p>}
+                        <p className="mb-3">{user.bio || 'Bio não informada.'}</p>
 
                         <div className="row">
 
@@ -81,7 +81,7 @@ export default function User() {
 
                         <RepoSortSelect value={sortBy} onChange={setSortBy} />
 
-                        {loadingRepos && <p>Carregando repositórios...</p>}
+                        {loadingRepos && <Loading />}
 
                         {repoError && <ErrorMessage message={repoError} />}
 
