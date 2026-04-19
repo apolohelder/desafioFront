@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUser } from '../services/githubApi';
 import type { GitHubUser } from '../types/GitHubUser';
+import axios from 'axios';
 
 export function userFetch(username: string | undefined) {
 
@@ -18,8 +19,19 @@ export function userFetch(username: string | undefined) {
 
                 const data = await getUser(username);
                 setUser(data);
-            } catch {
-                setError('Usuário não encontrado.');
+
+            } catch (error) {
+
+                if (axios.isAxiosError(error) && error.response?.status === 404) {
+                    setError('Usuário não encontrado.');
+                } else {
+                    setError('Erro ao buscar dados do usuário.');
+                }
+
+                if (import.meta.env.DEV) {
+                    console.error(error);
+                }
+
             } finally {
                 setLoading(false);
             }

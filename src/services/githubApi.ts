@@ -7,8 +7,16 @@ const githubApi = axios.create({
 });
 
 async function fetchData<T>(url: string): Promise<T> {
-    const { data } = await githubApi.get<T>(url);
-    return data;
+    try {
+        const { data } = await githubApi.get<T>(url);
+        return data;
+    } catch (error) {
+        if (import.meta.env.DEV) {
+            console.error(`Erro na requisição para ${url}`, error);
+        }
+
+        throw error;
+    }
 }
 
 export const getUser = (username: string) => fetchData<GitHubUser>(`/users/${username}`);

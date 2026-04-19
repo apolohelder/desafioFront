@@ -4,14 +4,28 @@ import { Icon } from './Icon';
 
 export function SearchForm() {
     const [username, setUsername] = useState('');
+    const [inputError, setInputError] = useState('');
     const navigate = useNavigate();
 
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
 
-        if (!username.trim()) return;
+        const formattedUsername = username.trim();
 
-        navigate(`/user/${username}`);
+        if (!formattedUsername) {
+            setInputError('Digite um usuário do GitHub.');
+            return;
+        }
+
+        const isValidUsername = /^[a-zA-Z0-9-]+$/.test(formattedUsername);
+
+        if (!isValidUsername) {
+            setInputError('Digite um nome de usuário válido.');
+            return;
+        }
+
+        setInputError('');
+        navigate(`/user/${formattedUsername}`);
     }
     return (
 
@@ -35,12 +49,18 @@ export function SearchForm() {
                 <button
                     type="submit"
                     aria-label="Buscar usuário"
+                    disabled={!username.trim()}
                     className="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center"
                 >
                     <Icon name="search" size={20} className="me-2" title="Buscar" />
                     <span>Buscar</span>
                 </button>
             </form>
+
+            {inputError && (
+                <small className="text-danger">{inputError}</small>
+            )}
+
         </div>
 
     );

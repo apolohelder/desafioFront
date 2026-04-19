@@ -10,9 +10,11 @@ export function Icon({
 
     const path = ICON_PATHS[name];
 
-    if (!path) {
-        console.warn(`Ícone "${name}" não encontrado`);
-        return null;
+    if (import.meta.env.DEV) {
+        if (!path) {
+            console.warn(`Ícone "${name}" não encontrado`);
+            return null;
+        }
     }
 
     return (
