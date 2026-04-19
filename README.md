@@ -43,7 +43,6 @@ Aplicação front-end desenvolvida para consumir a API do GitHub, permitindo bus
 - Navegação entre páginas
 - Página 404 para rotas inválidas
 
----
 
 ## Como executar o projeto
 
