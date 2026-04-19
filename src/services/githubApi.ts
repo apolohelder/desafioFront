@@ -15,3 +15,8 @@ export async function getUserRepos(username: string): Promise<GitHubRepo[]> {
     const response = await githubApi.get<GitHubRepo[]>(`/users/${username}/repos`);
     return response.data;
 }
+
+export async function getRepoDetails(fullName: string): Promise<GitHubRepo> {
+    const response = await githubApi.get<GitHubRepo>(`/repos/${fullName}`);
+    return response.data;
+}

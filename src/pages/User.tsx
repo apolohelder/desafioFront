@@ -6,6 +6,7 @@ import { RepoCard } from '../components/RepoCard';
 import { RepoSortSelect } from '../components/RepoSortSelect';
 import { repoFetch } from '../hooks/repoFetch';
 import { userFetch } from '../hooks/userFetch';
+import { BoxStats } from '../components/BoxStats';
 import type { RepoSortOption } from '../types/RepoSortOption';
 
 export function User() {
@@ -37,7 +38,7 @@ export function User() {
     if (!user) return null;
 
     return (
-        <div className="container py-2">
+        <div className="container">
             <div className="card shadow-sm p-4">
                 <div className="row align-items-center">
 
@@ -62,22 +63,13 @@ export function User() {
                         {user.bio && <p className="mb-3">{user.bio}</p>}
 
                         <div className="row">
-                            <div className="col-6 col-md-4">
-                                <strong>Seguidores</strong>
-                                <p className="mb-2">{user.followers}</p>
-                            </div>
 
-                            <div className="col-6 col-md-4">
-                                <strong>Seguindo</strong>
-                                <p className="mb-2">{user.following}</p>
-                            </div>
+                            <BoxStats title="Seguidores" numberStat={user.followers} />
 
-                            <div className="col-12 col-md-4">
-                                <strong>E-mail</strong>
-                                <p className="mb-2">
-                                    {user.email || 'Não informado'}
-                                </p>
-                            </div>
+                            <BoxStats title="Seguindo" numberStat={user.following} />
+
+                            <BoxStats title="E-mail" numberStat={user.email || 'Não informado'} />
+
                         </div>
                     </div>
 

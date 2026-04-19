@@ -6,7 +6,7 @@ function App() {
 	return (
 		<>
 			<Header />
-			<main className="container px-4 py-5">
+			<main className="container px-md-4 py-4 py-md-5">
 				<AppRoutes />
 			</main>
 			<Footer />

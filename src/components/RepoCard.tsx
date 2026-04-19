@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { GitHubRepo } from '../types/GitHubRepo';
+import { Icon } from './Icon';
 
 interface RepoCardProps {
     repo: GitHubRepo;
@@ -16,7 +17,7 @@ export function RepoCard({ repo }: RepoCardProps) {
                 </p>
 
                 <p className="mb-2">
-                    <strong>⭐ Estrelas:</strong> {repo.stargazers_count}
+                    <strong><Icon name="star" size={20} /> Estrelas Estrelas:</strong> {repo.stargazers_count}
                 </p>
 
                 <p className="mb-3">
