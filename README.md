@@ -1,4 +1,4 @@
-# 🔎 GitHub User Explorer
+# GitHub User Explorer
 
 Aplicação front-end desenvolvida para consumir a API do GitHub, permitindo buscar usuários e visualizar seus repositórios mais populares com ordenação e navegação detalhada.
 

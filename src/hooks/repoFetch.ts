@@ -8,7 +8,9 @@ export function repoFetch(username: string | undefined) {
     const [repoError, setRepoError] = useState('');
 
     useEffect(() => {
+
         async function fetchRepos() {
+
             try {
                 setLoadingRepos(true);
                 setRepoError('');
@@ -25,6 +27,7 @@ export function repoFetch(username: string | undefined) {
         }
 
         fetchRepos();
+
     }, [username]);
 
     return { repos, loadingRepos, repoError };

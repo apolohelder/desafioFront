@@ -8,7 +8,9 @@ export function repoDetailsFetch(fullName: string | null) {
     const [error, setError] = useState('');
 
     useEffect(() => {
+
         async function fetchRepoDetails() {
+
             try {
                 setLoading(true);
                 setError('');
@@ -28,6 +30,7 @@ export function repoDetailsFetch(fullName: string | null) {
         }
 
         fetchRepoDetails();
+
     }, [fullName]);
 
     return { repo, loading, error };

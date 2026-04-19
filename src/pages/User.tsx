@@ -58,6 +58,7 @@ export default function User() {
                     </div>
 
                     <div className="col-12 col-md-9">
+
                         <h1 className="mb-1 fs-4 text-uppercase">
                             {user.name || user.login}
                         </h1>
@@ -79,6 +80,7 @@ export default function User() {
                             <BoxStats title="E-mail" numberStat={user.email || 'Não informado'} />
 
                         </div>
+
                     </div>
 
                     <div className="col-12">

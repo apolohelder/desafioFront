@@ -11,6 +11,7 @@ export function userFetch(username: string | undefined) {
 
     useEffect(() => {
         async function fetchUser() {
+
             try {
                 setLoading(true);
                 setError('');
