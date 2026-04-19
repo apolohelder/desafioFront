@@ -30,8 +30,23 @@ export default function Repositories() {
                 <div className="card-body">
                     <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
                         <div>
-                            <p className="text-muted mb-1">{repoData.full_name}</p>
-                            <h1 className="h2 mb-2">{repoData.name}</h1>
+                            <div className="d-flex align-items-center mb-3">
+
+                                <a href={repoData.owner.html_url} target="_blank" rel="noreferrer">
+                                    <img
+                                        src={repoData.owner.avatar_url}
+                                        alt={repoData.owner.login}
+                                        width={25}
+                                        height={25}
+                                        className=" border rounded-circle "
+                                    />
+                                </a>
+
+                                <p className="text-muted ms-2 m-0">{repoData.full_name}</p>
+
+                            </div>
+
+                            <h1 className="h3 mb-2">{repoData.name}</h1>
                             <p className="text-muted mb-0">
                                 {repoData.description || 'Sem descrição informada.'}
                             </p>
@@ -82,55 +97,28 @@ export default function Repositories() {
                         </div>
 
                         <div className="col-12 col-md-6">
+
                             <div className="border rounded p-3 h-100">
-                                <h2 className="h5 mb-3">Proprietário</h2>
+                                <h2 className="h5 mb-3">Licença e tópicos</h2>
 
-                                <div className="d-flex align-items-center gap-3">
-                                    <img
-                                        src={repoData.owner.avatar_url}
-                                        alt={repoData.owner.login}
-                                        width={56}
-                                        height={56}
-                                        className="rounded-circle"
-                                    />
+                                <p className="mb-3">
+                                    <strong>Licença:</strong>{' '}
+                                    {repoData.license?.name || 'Não informada'}
+                                </p>
 
-                                    <div>
-                                        <p className="mb-1">
-                                            <strong>{repoData.owner.login}</strong>
-                                        </p>
-
-                                        <a
-                                            href={repoData.owner.html_url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            Ver perfil do proprietário
-                                        </a>
+                                {repoData.topics && repoData.topics.length > 0 ? (
+                                    <div className="d-flex flex-wrap gap-2">
+                                        {repoData.topics.map((topic) => (
+                                            <span key={topic} className="badge text-bg-secondary">
+                                                {topic}
+                                            </span>
+                                        ))}
                                     </div>
-                                </div>
+                                ) : (
+                                    <p className="mb-0 text-muted">Nenhum tópico informado.</p>
+                                )}
                             </div>
                         </div>
-                    </div>
-
-                    <div className="border rounded p-3">
-                        <h2 className="h5 mb-3">Licença e tópicos</h2>
-
-                        <p className="mb-3">
-                            <strong>Licença:</strong>{' '}
-                            {repoData.license?.name || 'Não informada'}
-                        </p>
-
-                        {repoData.topics && repoData.topics.length > 0 ? (
-                            <div className="d-flex flex-wrap gap-2">
-                                {repoData.topics.map((topic) => (
-                                    <span key={topic} className="badge text-bg-secondary">
-                                        {topic}
-                                    </span>
-                                ))}
-                            </div>
-                        ) : (
-                            <p className="mb-0 text-muted">Nenhum tópico informado.</p>
-                        )}
                     </div>
                 </div>
             </div>

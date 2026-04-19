@@ -9,24 +9,27 @@ interface RepoCardProps {
 export function RepoCard({ repo }: RepoCardProps) {
     return (
         <div className="card shadow-sm h-100">
-            <div className="card-body">
-                <h3 className="h5 card-title">{repo.name}</h3>
+            <div className="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <div className="d-flex align-items-center justify-content-between">
+                        <p className="h5 card-title">{repo.name}</p>
+                        <div><Icon name="star" className="text-warning" size={20} /> {repo.stargazers_count}</div>
+                    </div>
 
-                <p className="card-text text-muted">
-                    {repo.description || 'Sem descrição informada.'}
-                </p>
+                    <p className="card-text text-muted mb-3">
+                        {repo.description || 'Sem descrição informada.'}
+                    </p>
+                </div>
 
-                <p className="mb-2">
-                    <strong><Icon name="star" size={20} /> Estrelas:</strong> {repo.stargazers_count}
-                </p>
+                <div>
+                    <p className="list-group-item border-top border-bottom py-2">
+                        Linguagem: {repo.language || 'Não informada'}
+                    </p>
 
-                <p className="mb-3">
-                    <strong>Linguagem:</strong> {repo.language || 'Não informada'}
-                </p>
-
-                <Link to={`/repo/${repo.full_name}`} className="btn btn-outline-primary">
-                    Ver detalhes
-                </Link>
+                    <Link to={`/repo/${repo.full_name}`} className="btn btn-sm btn-outline-primary">
+                        Ver detalhes
+                    </Link>
+                </div>
             </div>
         </div>
     );

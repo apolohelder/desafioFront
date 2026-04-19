@@ -4,7 +4,8 @@ import type { IconProps } from '../types/IconProps';
 export function Icon({
     name,
     size = '20px',
-    className = '', color = 'currentColor',
+    className = '',
+    color = 'currentColor',
     title, }: IconProps) {
 
     const path = ICON_PATHS[name];

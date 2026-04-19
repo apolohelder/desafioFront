@@ -47,21 +47,25 @@ export default function User() {
                 <div className="row align-items-center">
 
                     <div className="col-12 col-md-3 text-center mb-4 mb-md-0">
-                        <img
-                            src={user.avatar_url}
-                            alt={user.login}
-                            className="img-fluid rounded-circle"
-                            style={{ maxWidth: 150 }}
-                        />
+                        <a className="rounded-circle" href={user.html_url} target="_blank" rel="noreferrer">
+                            <img
+                                src={user.avatar_url}
+                                alt={user.login}
+                                className="img-fluid rounded-circle"
+                                style={{ maxWidth: 150 }}
+                            />
+                        </a>
                     </div>
 
                     <div className="col-12 col-md-9">
-                        <h2 className="mb-1">
+                        <h1 className="mb-1 fs-4 text-uppercase">
                             {user.name || user.login}
-                        </h2>
+                        </h1>
 
                         <p className="text-muted mb-2">
-                            @{user.login}
+                            <a href={user.html_url} target="_blank" rel="noreferrer">
+                                @{user.login}
+                            </a>
                         </p>
 
                         <p className="mb-3">{user.bio || 'Bio não informada.'}</p>
@@ -77,35 +81,40 @@ export default function User() {
                         </div>
                     </div>
 
-                    <section>
+                    <div className="col-12">
 
-                        <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 mt-5">
-                            <h2 className="h4 mb-3 mb-md-0">Repositórios</h2>
+                        <div className="col-12 border-top mt-5 px-0">
+
+                            <div className="d-flex align-items-center justify-content-between mb-4 mt-5">
+                                <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                                    <p className="h5 mb-0">Repositórios</p>
+                                </div>
+
+                                <RepoSortSelect value={sortBy} onChange={setSortBy} />
+                            </div>
+
+                            {loadingRepos && <Loading />}
+
+                            {repoError && <ErrorMessage message={repoError} />}
+
+                            {!loadingRepos && !repoError && sortedRepos.length === 0 && (
+                                <div className="alert alert-secondary">
+                                    Este usuário não possui repositórios públicos.
+                                </div>
+                            )}
+
+                            {!loadingRepos && !repoError && sortedRepos.length > 0 && (
+                                <div className="row g-3">
+                                    {sortedRepos.map((repo) => (
+                                        <div key={repo.id} className="col-12 col-md-4">
+                                            <RepoCard repo={repo} />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
                         </div>
-
-                        <RepoSortSelect value={sortBy} onChange={setSortBy} />
-
-                        {loadingRepos && <Loading />}
-
-                        {repoError && <ErrorMessage message={repoError} />}
-
-                        {!loadingRepos && !repoError && sortedRepos.length === 0 && (
-                            <div className="alert alert-secondary">
-                                Este usuário não possui repositórios públicos.
-                            </div>
-                        )}
-
-                        {!loadingRepos && !repoError && sortedRepos.length > 0 && (
-                            <div className="row g-3">
-                                {sortedRepos.map((repo) => (
-                                    <div key={repo.id} className="col-12 col-md-6">
-                                        <RepoCard repo={repo} />
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>

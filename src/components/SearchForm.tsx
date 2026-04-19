@@ -21,6 +21,7 @@ export function SearchForm() {
 
                 <div className="form-floating">
                     <input
+                        required
                         type="text"
                         className="form-control rounded-4"
                         id="searchInput"

@@ -7,9 +7,9 @@ interface RepoSortSelectProps {
 
 export function RepoSortSelect({ value, onChange }: RepoSortSelectProps) {
     return (
-        <div className="ms-auto mb-3 d-flex align-items-center justify-content-end gap-2">
+        <div className="d-flex align-items-center justify-content-end gap-2">
 
-            <label htmlFor="repo-order" className="form-label text-nowrap">
+            <label htmlFor="repo-order" className="form-label text-nowrap m-0 d-none d-md-block">
                 Ordenar por:
             </label>
 
